@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Site en construction</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html,body{height:100%;margin:0;padding:0}
+    body{display:flex!important;align-items:center!important;justify-content:center!important}
+    main{width:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:2rem}
+    .card-3d{
+      background:rgba(5,13,26,0.8)!important;
+      backdrop-filter:blur(20px)!important;
+      padding:2rem!important;
+      border:2px solid rgba(160,108,213,0.4)!important;
+      border-radius:8px!important;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4)!important
+    }
+    h1{
+      font-size:1.875rem!important;
+      line-height:1.4!important;
+      color:#e2cfea!important;
+      margin-bottom:1.5rem!important
+    }
+    p{
+      font-size:1.125rem!important;
+      line-height:1.8!important;
+      color:rgba(226,207,234,0.9)!important;
+      margin-bottom:1rem!important
+    }
+    .text-lavender-purple{color:#a06cd5!important}
+    .text-thistle\/60{color:rgba(226,207,234,0.6)!important}
+    .text-thistle\/70{color:rgba(226,207,234,0.7)!important}
+    .text-thistle\/80{color:rgba(226,207,234,0.8)!important}
+    .text-thistle\/90{color:rgba(226,207,234,0.9)!important}
+    .mb-4{margin-bottom:1.5rem!important}
+    .pt-3{padding-top:1rem!important}
+    @media (min-width:768px){
+      h1{font-size:2.25rem!important}
+      p{font-size:1.25rem!important}
+      .card-3d{padding:2.5rem!important}
+    }
+  </style>
+</head>
+<body class="bg-darker-blue text-thistle">
+<canvas id="particles-canvas"></canvas>
+
+<main class="min-h-screen flex items-center justify-center px-4 cyber-grid">
+  <div class="max-w-xl w-full">
+    <!-- Carte style CTF avec tous les effets terminal -->
+    <div class="block p-6 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow card-3d shine-effect border-animate pulse-animate">
+      <!-- Header fichier terminal -->
+      <div class="flex items-center gap-2 mb-4 text-thistle/60 text-sm font-mono">
+        <span>-rw-r--r--</span>
+        <span class="text-lavender-purple sparkle">landing_page.md</span>
+      </div>
+
+      <!-- Contenu avec style terminal -->
+      <div class="mb-4">
+        <h1 class="text-2xl md:text-3xl font-bold mb-3 text-thistle neon-text font-mono">
+          <span class="text-lavender-purple">$</span> cat status.txt
+        </h1>
+        <p class="text-lg text-thistle/90 mb-3 font-mono leading-relaxed">
+          <span class="text-lavender-purple/80">→</span> Le site est actuellement en construction
+        </p>
+        <p class="text-base text-thistle/80 font-mono leading-relaxed">
+          <span class="text-lavender-purple/60">→</span> Il sera accessible dès que possible
+        </p>
+      </div>
+
+      <!-- Footer avec badge status -->
+      <div class="flex gap-2 flex-wrap text-xs font-mono pt-3 border-t border-lavender-purple/20">
+        <span class="px-3 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate breathe-effect">
+          ⚠ work-in-progress
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight});
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+.5;this.speedX=Math.random()*.5-.25;this.speedY=Math.random()*.5-.25;this.opacity=Math.random()*.5+.2}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height}draw(){ctx.fillStyle=`rgba(160,108,213,${this.opacity})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill()}}
+const particles=[];for(let i=0;i<100;i++)particles.push(new Particle());
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<particles.length;i++){particles[i].update();particles[i].draw();for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,distance=Math.sqrt(dx*dx+dy*dy);if(distance<100){ctx.strokeStyle=`rgba(160,108,213,${.1*(1-distance/100)})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke()}}}requestAnimationFrame(animate)}
+animate();
+
+// Effet 3D sur la carte au mouvement de la souris
+document.querySelector('.card-3d').addEventListener('mousemove',(e)=>{
+  const rect=e.currentTarget.getBoundingClientRect();
+  const x=e.clientX-rect.left,y=e.clientY-rect.top;
+  const centerX=rect.width/2,centerY=rect.height/2;
+  const rotateX=(y-centerY)/20,rotateY=(centerX-x)/20;
+  e.currentTarget.style.transform=`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
+});
+document.querySelector('.card-3d').addEventListener('mouseleave',(e)=>{
+  e.currentTarget.style.transform='';
+});
+</script>
+</body>
+</html>
+
