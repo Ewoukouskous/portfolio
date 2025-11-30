@@ -1,0 +1,696 @@
+/* Style Terminal Linux */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+
+* {
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Reset global pour éviter les marges par défaut du navigateur qui peuvent créer un décalage */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #0a0e14 0%, #050d1a 50%, #102b3f 100%);
+    background-attachment: fixed;
+}
+
+/* Particules animées en arrière-plan */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Canvas pour les éclairs */
+#lightning-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Effet de scan line terminal subtil */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1) 1px,
+            transparent 1px,
+            transparent 2px
+    );
+    pointer-events: none;
+}
+
+/* Effet prompt terminal */
+.terminal-prompt::before {
+    content: '$ ';
+    color: #a06cd5;
+    font-weight: bold;
+}
+
+/* Effet clignotant pour curseur */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.cursor::after {
+    content: '▌';
+    animation: blink 1s infinite;
+    color: #a06cd5;
+}
+
+/* Scrollbar personnalisée - Style Terminal */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050d1a;
+    border-left: 1px solid rgba(160, 108, 213, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6247aa;
+    border: 2px solid #050d1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a06cd5;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #6247aa #050d1a;
+}
+
+/* Style des bordures terminal */
+.terminal-border {
+    border: 1px solid rgba(160, 108, 213, 0.3);
+    position: relative;
+}
+
+.terminal-border::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(160, 108, 213, 0.1) 50%,
+    transparent 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.terminal-border:hover::before {
+    opacity: 1;
+}
+
+/* Animation de typing */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Effet de glow subtil sur les éléments interactifs */
+.terminal-glow {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.terminal-glow:hover {
+    text-shadow: 0 0 10px rgba(160, 108, 213, 0.5);
+    box-shadow: 0 0 20px rgba(160, 108, 213, 0.3),
+    0 0 40px rgba(160, 108, 213, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Animation de pulse pour les éléments importants */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(160, 108, 213, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(160, 108, 213, 0.4),
+        0 0 30px rgba(160, 108, 213, 0.2);
+    }
+}
+
+.pulse-animate {
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Animation de float */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-animate {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animation de slide-in */
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.animated {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Effet de bordure animée */
+@keyframes border-pulse {
+    0%, 100% {
+        border-color: rgba(160, 108, 213, 0.3);
+    }
+    50% {
+        border-color: rgba(160, 108, 213, 0.8);
+    }
+}
+
+.border-animate {
+    animation: border-pulse 2s ease-in-out infinite;
+}
+
+/* Effet terminal header */
+.terminal-header {
+    border-bottom: 1px solid rgba(160, 108, 213, 0.3);
+    background: rgba(10, 14, 20, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Ligne de séparation style terminal */
+.terminal-separator {
+    border-top: 1px dashed rgba(160, 108, 213, 0.2);
+    margin: 0.5rem 0;
+}
+
+/* Badge terminal */
+.terminal-badge {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid rgba(160, 108, 213, 0.4);
+    font-size: 0.75rem;
+    transition: all 0.2s;
+}
+
+.terminal-badge:hover {
+    border-color: rgba(160, 108, 213, 0.8);
+    background: rgba(160, 108, 213, 0.1);
+}
+
+/* Info box terminal */
+.terminal-info-box {
+    border-left: 3px solid #a06cd5;
+    padding-left: 0.75rem;
+    margin: 0.75rem 0;
+}
+
+/* Command prompt style */
+.terminal-command {
+    color: #a06cd5;
+    font-weight: 600;
+}
+
+.terminal-output {
+    color: #e2cfea;
+    opacity: 0.8;
+}
+
+/* Réduction des espacements globaux */
+.container {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.my-5 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.my-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem !important;
+}
+
+.card {
+    margin-bottom: 1rem !important;
+}
+
+.card-body {
+    padding: 1rem !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem !important;
+}
+
+p {
+    margin-bottom: 0.75rem !important;
+}
+
+ul, ol {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Effet 3D sur les cartes */
+.card-3d {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 40px rgba(160, 108, 213, 0.2),
+    0 0 20px rgba(160, 108, 213, 0.1);
+}
+
+/* Effet de gradient animé */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradient-animate {
+    background: linear-gradient(45deg, #6247aa, #a06cd5, #e2cfea, #a06cd5, #6247aa);
+    background-size: 300% 300%;
+    animation: gradient-shift 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Effet de brillance sur hover */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.shine-effect:hover::before {
+    transform: translateX(100%);
+}
+
+/* Effet de particules scintillantes */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+    position: relative;
+}
+
+.sparkle::after {
+    content: '✦';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.6em;
+    color: #a06cd5;
+    opacity: 0;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Amélioration de la photo de profil */
+.profile-image-container {
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: visible; /* permet à la pseudo-bordure animée d'être visible */
+}
+
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6247aa, #a06cd5, #e2cfea);
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease infinite;
+    z-index: 0; /* placé derrière l'image mais dans le flux du container */
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.profile-image-container:hover::before {
+    opacity: 1;
+}
+
+.profile-image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* évite la déformation */
+    object-position: center; /* recentre l'image */
+    border-radius: 50%;
+    position: relative;
+    z-index: 1; /* au-dessus de la pseudo-bordure */
+}
+
+/* Effet de typing pour le texte */
+@keyframes typing-cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #a06cd5; }
+}
+
+.typing-effect {
+    border-right: 2px solid #a06cd5;
+    animation: typing-cursor 1s step-end infinite;
+}
+
+/* Amélioration des boutons */
+.btn-glow {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn-glow::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #6247aa, #a06cd5);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    filter: blur(10px);
+}
+
+.btn-glow:hover::after {
+    opacity: 0.7;
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(160, 108, 213, 0.4);
+}
+
+/* Loading bar animé */
+@keyframes load-bar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.loading-bar {
+    height: 2px;
+    background: linear-gradient(90deg, #6247aa, #a06cd5, #e2cfea);
+    animation: load-bar 2s ease-out;
+}
+
+/* Effet néon pour les titres */
+.neon-text {
+    text-shadow:
+            0 0 5px rgba(160, 108, 213, 0.5),
+            0 0 10px rgba(160, 108, 213, 0.4),
+            0 0 20px rgba(160, 108, 213, 0.3),
+            0 0 40px rgba(160, 108, 213, 0.2);
+}
+
+/* Animation de glitch subtile */
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.3),
+        -0.05em -0.025em 0 rgba(0, 255, 0, 0.3),
+        -0.025em 0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.3),
+        -0.05em -0.025em 0 rgba(0, 255, 0, 0.3),
+        -0.025em 0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.3),
+        0.025em 0.025em 0 rgba(0, 255, 0, 0.3),
+        -0.05em -0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.3),
+        0.025em 0.025em 0 rgba(0, 255, 0, 0.3),
+        -0.05em -0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.3),
+        0.05em 0 0 rgba(0, 255, 0, 0.3),
+        0 -0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.3),
+        0.05em 0 0 rgba(0, 255, 0, 0.3),
+        0 -0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.3),
+        -0.025em -0.025em 0 rgba(0, 255, 0, 0.3),
+        -0.025em -0.05em 0 rgba(0, 0, 255, 0.3);
+    }
+}
+
+.glitch-effect:hover {
+    animation: glitch 0.3s linear infinite;
+}
+
+/* Effet de vague sur hover des sections */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.wave-effect:hover {
+    animation: wave 1s ease-in-out infinite;
+}
+
+/* Effet de respiration pour les éléments importants */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+.breathe-effect {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+/* Effet de bordure en rotation */
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating-border {
+    position: relative;
+}
+
+.rotating-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #6247aa, #a06cd5, #e2cfea, #6247aa);
+    border-radius: inherit;
+    z-index: -1;
+    animation: rotate-border 3s linear infinite;
+    background-size: 400% 400%;
+}
+
+/* Amélioration du contraste pour meilleure lisibilité */
+.text-enhanced {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Effet de grille cyberpunk */
+.cyber-grid {
+    background-image:
+            linear-gradient(rgba(160, 108, 213, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(160, 108, 213, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation de changement de langue */
+body.lang-switching [data-i18n] {
+    animation: fade-text 0.3s ease-in-out;
+}
+
+@keyframes fade-text {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+        transform: translateY(-3px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style du bouton de langue */
+#lang-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+#lang-toggle:hover {
+    transform: scale(1.05);
+}
+
+#lang-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Fixer le header en haut et s'assurer qu'il reste au-dessus du contenu (renforcé) */
+nav {
+    position: fixed !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10000 !important;
+}
+
+#nav-spacer {
+    height: 0;
+    width: 100%;
+    display: block;
+}
+
+/* Forcer aucune marge/padding qui pourrait pousser le header */
+:root {
+    --safe-top: env(safe-area-inset-top, 0px);
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+nav {
+    top: var(--safe-top) !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+#nav-spacer {
+    display: block !important;
+}
+
+/* Empêcher que les éléments fixes héritent de transformations (rendering) */
+html, body, #app {
+    transform: none !important;
+}
