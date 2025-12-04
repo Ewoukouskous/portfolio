@@ -8,13 +8,13 @@ const translations = {
         // CV Section
         "cv.intro": "Vous souhaitez en apprendre plus sur moi ?",
         "cv.skills.title": "$ whoami --skills",
-        "cv.skills.pentest": "Pentesting Web & Network",
-        "cv.skills.exploit": "Exploitation de failles (SQLi, XSS, CSRF)",
-        "cv.skills.reverse": "Reverse Engineering & Malware Analysis",
+        "cv.skills.pentest": "Résolution de challenge type CTF",
+        "cv.skills.exploit": "Rédaction de rapports, write up",
+        "cv.skills.reverse": "Hardening sur machines Linux",
         "cv.skills.script": "Scripting",
-        "cv.skills.crypto": "Reverse engineering",
+        "cv.skills.crypto": "Web",
         "cv.skills.osint": "OSINT",
-        "cv.skills.forensics": "Forensics",
+        "cv.skills.forensics": "Élévation de privilège",
         "cv.tools.title": "$ ls /usr/bin/ | grep -i tools",
         "cv.download": "[ wget cv.pdf ]",
         "cv.contact.status": "status:",
@@ -87,15 +87,15 @@ const translations = {
         // CV Section
         "cv.intro": "Want to learn more about me?",
         "cv.skills.title": "$ whoami --skills",
-        "cv.skills.pentest": "Web & Network Pentesting",
-        "cv.skills.exploit": "Exploitation (SQLi, XSS, CSRF)",
-        "cv.skills.reverse": "Reverse Engineering & Malware Analysis",
+        "cv.skills.pentest": "CTF-style challenge solving",
+        "cv.skills.exploit": "Report writing / write-ups",
+        "cv.skills.reverse": "Linux hardening",
         "cv.skills.script": "Scripting",
-        "cv.skills.crypto": "Reverse engineering",
+        "cv.skills.crypto": "Web",
         "cv.skills.osint": "OSINT",
-        "cv.skills.forensics": "Forensics",
+        "cv.skills.forensics": "Privilege escalation",
         "cv.tools.title": "$ ls /usr/bin/ | grep -i tools",
-        "cv.download": "[ wget resume.pdf ]",
+        "cv.download": "[ wget cv.pdf ]",
         "cv.contact.status": "status:",
         "cv.contact.value": "open_to_opportunities",
         "cv.contact.text": "Feel free to contact me to discuss your internship or work-study opportunities in cybersecurity",
@@ -211,4 +211,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
