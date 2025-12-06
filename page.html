@@ -149,9 +149,9 @@
         </div>
 
         <!-- Grid de cards CTF -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div id="ctf-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- CTF Card 1 -->
-            <a href="ctf-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
                     <span class="text-lavender-purple">challenge_001.md</span>
@@ -159,18 +159,18 @@
                 <div class="mb-3 border border-lavender-purple/30 overflow-hidden">
                     <img src="" alt="CTF thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                 </div>
-                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card1.title">Nom du CTF</h3>
-                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card1.desc">Challenge d'exploitation web avancé impliquant SQLi et bypass de WAF</p>
-                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card1.time">Résolu en 2h30 - Points: 500</p>
+                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card1.title">CTF OxyHack</h3>
+                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card1.desc">Premier CTF en condition réelle sur une journée</p>
+                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card1.time">15 résolutions - Points: 1177 - rang #6 sur #9</p>
                 <div class="flex gap-2 flex-wrap text-xs font-mono">
-                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">web</span>
-                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">crypto</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">B1</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">OxyHack</span>
                     <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2024</span>
                 </div>
-            </a>
+            </div>
 
             <!-- CTF Card 2 -->
-            <a href="ctf-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
                     <span class="text-lavender-purple">challenge_002.md</span>
@@ -178,17 +178,18 @@
                 <div class="mb-3 border border-lavender-purple/30 overflow-hidden">
                     <img src="" alt="CTF thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                 </div>
-                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card2.title">Nom du CTF</h3>
-                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card2.desc">Reverse engineering d'un binaire ELF avec techniques d'anti-debugging</p>
-                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card2.time">Résolu en 4h15 - Points: 750</p>
+                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card2.title">Hack The Box</h3>
+                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card2.desc">Premier CTF de nuit de 20h à 00h également premier CTF par HTB</p>
+                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card2.time">XXX résolutions - Points: XXX - rang #X sur #XX</p>
                 <div class="flex gap-2 flex-wrap text-xs font-mono">
-                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">reverse</span>
-                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2024</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">B1</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">Hack The Box</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2025</span>
                 </div>
-            </a>
+            </div>
 
             <!-- CTF Card 3 -->
-            <a href="ctf-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
                     <span class="text-lavender-purple">challenge_003.md</span>
@@ -196,14 +197,41 @@
                 <div class="mb-3 border border-lavender-purple/30 overflow-hidden">
                     <img src="" alt="CTF thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                 </div>
-                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card3.title">Nom du CTF</h3>
-                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card3.desc">Analyse forensics d'un dump mémoire avec extraction de données cachées</p>
-                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card3.time">Résolu en 3h00 - Points: 600</p>
+                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card3.title">Cybersecurity Business Convention</h3>
+                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card3.desc">Premier CTF hors école ainsi que le premier de ma deuxième année</p>
+                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card3.time">20 résolutions - Points: 9 325 - rang #8 sur #28</p>
                 <div class="flex gap-2 flex-wrap text-xs font-mono">
-                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">forensics</span>
-                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2023</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">B2</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">Hack The Box</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2025</span>
                 </div>
-            </a>
+            </div>
+
+            <!-- CTF Card 4 -->
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll hidden" data-extra-card>
+                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
+                    <span>-rw-r--r--</span>
+                    <span class="text-lavender-purple">challenge_004.md</span>
+                </div>
+                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">
+                    <img src="" alt="CTF thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                </div>
+                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="ctf.card4.title">Ynov CTF</h3>
+                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="ctf.card4.desc">CTF national d'Ynov en solo contre des équipes allant jusqu'à 6</p>
+                <p class="text-thistle/50 mb-3 text-xs" data-i18n="ctf.card4.time">16 résolutions - Points: 2 408 - rang #39 sur #1 167</p>
+                <div class="flex gap-2 flex-wrap text-xs font-mono">
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">B2</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">Ynov</span>
+                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bouton Voir Plus -->
+        <div class="text-center mt-6">
+            <button id="ctf-show-more" class="px-6 py-3 border border-deep-lilac rounded-lg hover:bg-deep-lilac/20 transition btn-glow shine-effect font-mono">
+                <span data-i18n="ctf.showMore">Voir plus</span> <span class="ml-2">▼</span>
+            </button>
         </div>
     </div>
 </section>
@@ -571,6 +599,38 @@
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
     });
+
+    // Gestion du bouton "Voir plus" pour les cards CTF
+    const showMoreBtn = document.getElementById('ctf-show-more');
+    const extraCards = document.querySelectorAll('[data-extra-card]');
+    let ctfExpanded = false;
+
+    if (showMoreBtn && extraCards.length > 0) {
+        showMoreBtn.addEventListener('click', () => {
+            ctfExpanded = !ctfExpanded;
+
+            extraCards.forEach(card => {
+                if (ctfExpanded) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const btnText = showMoreBtn.querySelector('[data-i18n="ctf.showMore"]');
+            const btnIcon = showMoreBtn.querySelector('span:last-child');
+
+            if (ctfExpanded) {
+                btnText.setAttribute('data-i18n', 'ctf.showLess');
+                btnText.textContent = 'Voir moins'; // sera mis à jour par setLanguage si nécessaire
+                btnIcon.textContent = '▲';
+            } else {
+                btnText.setAttribute('data-i18n', 'ctf.showMore');
+                btnText.textContent = 'Voir plus'; // sera mis à jour par setLanguage si nécessaire
+                btnIcon.textContent = '▼';
+            }
+        });
+    }
 
     // Effet de parallaxe léger sur scroll
     let ticking = false;
