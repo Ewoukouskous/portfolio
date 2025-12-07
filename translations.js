@@ -221,3 +221,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Expose API pour d'autres scripts
+if (typeof window !== 'undefined') {
+    window.i18n = {
+        setLanguage,
+        translateAll: () => translateAll(currentLang),
+        get currentLang() { return currentLang; },
+        translations
+    };
+}
