@@ -25,7 +25,7 @@ const translations = {
         // CTF Section
         "ctf.title": "$ ls -la ./ctf_challenges/",
         "ctf.subtitle": "Mes participations et résolutions de challenges CTF",
-        "ctf.card1.title": "OxyHack",
+        "ctf.card1.title": "CTF OxyHack",
         "ctf.card1.desc": "Premier CTF en condition réelle sur une journée",
         "ctf.card1.time": "15 résolutions - Points: 1177 - rang #6 sur #9",
         "ctf.card2.title": "Hack The Box",
@@ -80,9 +80,9 @@ const translations = {
         "footer.navigation": "$ ls navigation/",
         "footer.links": "$ ls links/",
         "footer.contact": "$ cat contact.info",
-        "footer.email": "email: contact@exemple.com",
+        "footer.email": "email: nino.lefebvre@ynov.com",
         "footer.location": "location: france",
-        "footer.copyright": '$ echo "© 2024 Portfolio. Tous droits réservés."',
+        "footer.copyright": '$ echo "© 2025. Tous droits réservés."',
     },
     en: {
         // Hero Section
@@ -110,16 +110,16 @@ const translations = {
         "ctf.title": "$ ls -la ./ctf_challenges/",
         "ctf.subtitle": "My CTF challenge participations and resolutions",
         "ctf.card1.title": "OxyHack",
-        "ctf.card1.desc": "First real-condition CTF over one day",
+        "ctf.card1.desc": "First real-condition CTF held over one day",
         "ctf.card1.time": "15 solves - Points: 1,177 - rank #6 out of #9",
         "ctf.card2.title": "Hack The Box",
-        "ctf.card2.desc": "First night CTF from 8pm to midnight, also first HTB CTF",
+        "ctf.card2.desc": "First night CTF from 8pm to midnight; first HTB participation",
         "ctf.card2.time": "XXX solves - Points: XXX - rank #X out of #XX",
         "ctf.card3.title": "Cybersecurity Business Convention",
-        "ctf.card3.desc": "First CTF outside school and first of my second year",
+        "ctf.card3.desc": "First CTF outside of school and the first of my second year",
         "ctf.card3.time": "20 solves - Points: 9,325 - rank #8 out of #28",
         "ctf.card4.title": "Ynov CTF",
-        "ctf.card4.desc": "Ynov national CTF solo against teams up to 6 people",
+        "ctf.card4.desc": "Ynov national CTF in solo against teams up to 6 people",
         "ctf.card4.time": "16 solves - Points: 2,408 - rank #39 out of #1,167",
         "ctf.showMore": "Show more",
         "ctf.showLess": "Show less",
@@ -164,9 +164,9 @@ const translations = {
         "footer.navigation": "$ ls navigation/",
         "footer.links": "$ ls links/",
         "footer.contact": "$ cat contact.info",
-        "footer.email": "email: contact@example.com",
+        "footer.email": "email: nino.lefebvre@ynov.com",
         "footer.location": "location: france",
-        "footer.copyright": '$ echo "© 2024 Portfolio. All rights reserved."',
+        "footer.copyright": '$ echo "© 2025. All rights reserved."',
     }
 };
 
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof window !== 'undefined') {
     window.i18n = {
         setLanguage,
-        translateAll: () => translateAll(currentLang),
+        translateAll: () => setLanguage(currentLang),
         get currentLang() { return currentLang; },
         translations
     };
