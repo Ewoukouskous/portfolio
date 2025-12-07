@@ -694,3 +694,23 @@ nav {
 html, body, #app {
     transform: none !important;
 }
+
+/* Styles spécifiques pour le formulaire de contact afin d'harmoniser avec le thème */
+.form-row {
+    margin-bottom: 0.75rem;
+}
+
+/* NOTE: we prefer Tailwind utility classes for visual styling of form controls
+   to remain consistent with other buttons/controls. Keep only non-visual
+   helpers here to avoid conflicts. */
+
+/* Small polish: keep textarea resize behavior */
+#contact-form textarea {
+    resize: vertical;
+    min-height: 140px;
+    max-height: 420px;
+}
+
+/* Accessibility: focus-visible handling kept globally above */
+
+/* end of form styles */
