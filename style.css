@@ -348,9 +348,9 @@ ul, ol {
 
 /* Effet de gradient animé */
 @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
+    0% { background-position: 0 50%; }
     50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 0 50%; }
 }
 
 .gradient-animate {
@@ -485,7 +485,7 @@ ul, ol {
 
 /* Loading bar animé */
 @keyframes load-bar {
-    0% { width: 0%; }
+    0% { width: 0; }
     100% { width: 100%; }
 }
 
@@ -714,3 +714,190 @@ html, body, #app {
 /* Accessibility: focus-visible handling kept globally above */
 
 /* end of form styles */
+
+/* Theme light overrides (appliqué via la classe .theme-light sur <body>) */
+body.theme-light {
+    --bg-100: #ffffff;
+    --bg-200: #f7f6ff;
+    --card: #ffffff;
+    --accent-500: #7c3aed; /* violet intermédiaire */
+    --accent-400: #9f7aea;
+    --muted-text: #334155; /* slate-700 */
+    --muted-text-2: rgba(51,65,85,0.75);
+    background: linear-gradient(120deg, var(--bg-200) 0%, #fbfbff 60%);
+    color: var(--muted-text);
+}
+
+/* Text colors: remplacer les utilitaires personnalisés par des valeurs lisibles en light mode */
+body.theme-light .text-thistle { color: var(--muted-text) !important; }
+body.theme-light .text-thistle\/60 { color: rgba(51,65,85,0.6) !important; }
+body.theme-light .text-thistle\/70 { color: rgba(51,65,85,0.7) !important; }
+body.theme-light .text-thistle\/80 { color: rgba(51,65,85,0.85) !important; }
+
+/* Sections / cards */
+body.theme-light .bg-darker-blue\/60 { background: rgba(250,250,255,0.8) !important; }
+body.theme-light .bg-darker-blue { background: var(--card) !important; }
+body.theme-light .border-lavender-purple { border-color: rgba(124,58,237,0.18) !important; }
+body.theme-light .border-lavender-purple\/30 { border-color: rgba(124,58,237,0.12) !important; }
+body.theme-light .border-deep-lilac\/40 { border-color: rgba(98,71,170,0.14) !important; }
+
+/* Lisibilité des badges "skills" et "tools" en light mode */
+body.theme-light .bg-deep-lilac\/20 { background: rgba(110,76,186,0.06) !important; }
+body.theme-light .border-deep-lilac\/40 { border-color: rgba(110,76,186,0.12) !important; }
+body.theme-light .border-lavender-purple\/30 { border-color: rgba(124,58,237,0.08) !important; }
+body.theme-light .text-thistle\/80 { color: var(--muted-text) !important; }
+
+/* Si des badges utilisent bg-deep-lilac/20 mais pas les utilitaires, cibler les éléments spécifiques */
+body.theme-light .btn-glow[role="badge"],
+body.theme-light .btn-glow.badge,
+body.theme-light .px-3.py-1 { background: rgba(110,76,186,0.06) !important; color: var(--muted-text) !important; border-color: rgba(124,58,237,0.08) !important; }
+
+/* Navigation */
+body.theme-light nav {
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,255,0.9)) !important;
+    box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+    border-bottom: 1px solid rgba(124,58,237,0.06);
+}
+
+/* Buttons and interactive elements */
+body.theme-light .btn-glow { color: var(--accent-500) !important; }
+body.theme-light .btn-glow::after { background: linear-gradient(45deg, rgba(124,58,237,0.18), rgba(159,122,250,0.14)); }
+body.theme-light .btn-glow:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.12); }
+
+body.theme-light .gradient-animate { background: linear-gradient(45deg, #6d28d9, #9f7aea, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+body.theme-light .loading-bar { background: linear-gradient(90deg, #6d28d9, #9f7aea, #c4b5fd); }
+
+/* Form controls: clair, bordures douces */
+body.theme-light input, body.theme-light textarea {
+    background: #ffffff !important;
+    color: var(--muted-text) !important;
+    border: 1px solid rgba(16,24,40,0.06) !important;
+    box-shadow: 0 4px 14px rgba(16,24,40,0.03) inset;
+}
+body.theme-light ::placeholder { color: rgba(16,24,40,0.35) !important; }
+
+/* Status box */
+body.theme-light .bg-lavender-purple\/20 { background: rgba(159,122,250,0.08) !important; color: var(--muted-text) !important; }
+
+/* Particules: adoucir et adapter au fond clair */
+body.theme-light canvas#particles-canvas { opacity: 0.55; mix-blend-mode: multiply; filter: saturate(0.9) brightness(0.95) hue-rotate(-10deg); }
+
+/* Images / profile container accent */
+body.theme-light .profile-image-container::before { background: linear-gradient(45deg, rgba(124,58,237,0.18), rgba(159,122,250,0.12)); }
+
+/* Links accent */
+body.theme-light a { color: var(--accent-500); }
+body.theme-light a:hover { color: var(--accent-400); }
+
+/* Small UI helpers */
+body.theme-light .terminal-glow:hover { text-shadow: 0 0 6px rgba(124,58,237,0.12); }
+
+/* Ensure focus outlines are visible on light background */
+body.theme-light :focus { outline: 3px solid rgba(124,58,237,0.12); outline-offset: 2px; }
+
+/* Tweak shine effect so it's visible but subtle */
+body.theme-light .shine-effect::before { background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%); opacity: 0.6; }
+
+/* Make sure footer contrast is good */
+body.theme-light footer { background: transparent !important; border-top: 1px solid rgba(16,24,40,0.04); }
+
+/* Minor spacing adjustments to keep rhythm similar to dark version */
+body.theme-light .container { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+/* Cards: empêcher qu'un hover applique un fond sombre qui rend le texte illisible */
+body.theme-light .card-3d,
+body.theme-light .ctf-card {
+    background: var(--card) !important;
+    color: var(--muted-text) !important;
+    border-color: rgba(16,24,40,0.04) !important;
+}
+
+body.theme-light .card-3d:hover,
+body.theme-light .ctf-card:hover {
+    background: linear-gradient(180deg, #ffffff, #fbfbff) !important;
+    border-color: rgba(124,58,237,0.06) !important;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.06) !important;
+    transform: translateY(-6px) scale(1.02) !important;
+}
+
+/* Forcer les textes internes à rester lisibles sur hover */
+body.theme-light .card-3d .text-thistle,
+body.theme-light .ctf-card .text-thistle {
+    color: var(--muted-text) !important;
+}
+body.theme-light .card-3d:hover .text-thistle,
+body.theme-light .ctf-card:hover .text-thistle {
+    color: var(--muted-text) !important;
+}
+
+/* Si des utilitaires tailwind appliquent hover:bg-darker-blue/80, neutraliser l'effet en light mode */
+body.theme-light [class*="hover:bg-darker-blue"] { background: transparent !important; }
+
+/* Styles pour status-like (utilisé pour skills/tools pour homogénéiser avec #contact-status) */
+.status-like {
+    padding: 0.75rem;
+    border-radius: 0.6rem;
+}
+
+/* Dark mode (par défaut) */
+.status-like {
+    background: rgba(98,71,170,0.06); /* très léger violet */
+    color: var(--text, var(--thistle, #e2cfea));
+}
+
+.status-like .px-3.py-1,
+.status-like .btn-glow[role="badge"],
+.status-like .btn-glow.badge {
+    background: rgba(98,71,170,0.08) !important;
+    border-color: rgba(98,71,170,0.18) !important;
+    color: #e9def8 !important;
+}
+
+/* Light mode overrides pour status-like (copier le style de contact-status en light mode) */
+body.theme-light .status-like {
+    background: rgba(159,122,250,0.06) !important; /* subtle lavender */
+    border: 1px solid rgba(124,58,237,0.06) !important;
+    color: var(--muted-text) !important;
+}
+
+body.theme-light .status-like .px-3.py-1,
+body.theme-light .status-like .btn-glow[role="badge"],
+body.theme-light .status-like .btn-glow.badge {
+    background: rgba(159,122,250,0.08) !important;
+    border-color: rgba(124,58,237,0.12) !important;
+    color: var(--muted-text) !important;
+}
+
+/* Make sure inner small text (text-thistle/80) inherits readable color */
+.status-like .text-thistle\/80 { color: inherit !important; }
+body.theme-light .status-like .text-thistle\/80 { color: inherit !important; }
+
+/* end status-like */
+
+/* Performance tweaks */
+.animate-on-scroll { will-change: transform, opacity; }
+.card-3d, .ctf-card { will-change: transform; }
+.profile-image-container img { display: block; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+
+/* Limit transitions to transform and opacity to avoid layout paints */
+* { transition-property: background-color, border-color, color, opacity, transform; transition-duration: 200ms; transition-timing-function: ease; }
+
+/* Reduce heavy shadows for small screens */
+@media (max-width: 768px){
+    .btn-glow:hover::after { opacity: 0.3; }
+    .card-3d:hover, .ctf-card:hover { box-shadow: 0 6px 18px rgba(16,24,40,0.04) !important; }
+}
+
+/* Avoid filter ops on animated elements */
+.sparkle, .gradient-animate { will-change: opacity; }
+
+/* Reduce paint cost for shine effect by lowering size */
+.shine-effect::before { filter: none; }
+
+/* Improve rendering for fixed background elements */
+body::before, #particles-canvas { will-change: transform, opacity; }
+
+/* Prefer GPU for transforms */
+.card-3d, .btn-glow, .profile-image-container { transform: translateZ(0); }
+
+/* end performance tweaks */
