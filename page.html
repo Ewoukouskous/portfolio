@@ -6,31 +6,13 @@
     <title>Portfolio - Cyberpunk</title>
     <link rel="icon" type="image/png" href="profile-assets/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'thistle': '#e2cfea',
-                        'lavender-purple': '#a06cd5',
-                        'deep-lilac': '#6247aa',
-                        'deep-space-blue': '#102b3f',
-                        'evergreen': '#062726',
-                        'dark-blue': '#0a1628',
-                        'darker-blue': '#050d1a',
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="scripts/tailwind-config.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-darker-blue text-thistle">
-<!-- Canvas pour les particules animées -->
 <canvas id="particles-canvas"></canvas>
 
-<!-- Navigation / Header -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:10000;outline:2px solid rgba(255,0,0,0.12);" class="w-full bg-dark-blue/95 backdrop-blur-sm z-50 border-b border-deep-lilac/30 shine-effect">
+<nav class="w-full bg-dark-blue/95 backdrop-blur-sm z-50 border-b border-deep-lilac/30 shine-effect" style="position:fixed;top:0;left:0;right:0;z-index:10000;">
     <div class="loading-bar" id="loading-bar"></div>
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
@@ -46,10 +28,8 @@
         </div>
     </div>
 </nav>
-<!-- Spacer pour compenser la hauteur du header fixe -->
 <div id="nav-spacer" aria-hidden="true"></div>
 
-<!-- Partie 1: Présentation + Photo de profil + Timeline informatique -->
 <section id="presentation" class="min-h-screen pt-20 px-4">
     <div class="container mx-auto py-12">
         <div class="flex flex-col items-center mb-8">
@@ -58,11 +38,8 @@
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-3 gradient-animate animate-on-scroll">LEFEBVRE Nino</h1>
             <p class="text-xl text-thistle/70 mb-2 sparkle animate-on-scroll" data-i18n="hero.title">Étudiant en cybersécurité à Toulouse Ynov Campus</p>
-            <p class="text-sm text-thistle/60 mb-4 font-mono text-center max-w-2xl animate-on-scroll" data-i18n="hero.subtitle">
-                Passionné par la cybersécurité et l'analyse de malware | Joueur de CTF
-            </p>
+            <p class="text-sm text-thistle/60 mb-4 font-mono text-center max-w-2xl animate-on-scroll" data-i18n="hero.subtitle">Passionné par la cybersécurité et l'analyse de malware | Joueur de CTF</p>
 
-            <!-- Réseaux et plateformes -->
             <div class="flex gap-3 flex-wrap justify-center mb-2 animate-on-scroll">
                 <a href="https://github.com/Ewoukouskous" class="px-4 py-2 border border-deep-lilac rounded-lg hover:bg-deep-lilac/20 transition text-sm btn-glow shine-effect">GitHub</a>
                 <a href="https://www.linkedin.com/in/nino-lefebvre-aa957b329/" class="px-4 py-2 border border-deep-lilac rounded-lg hover:bg-deep-lilac/20 transition text-sm btn-glow shine-effect">LinkedIn</a>
@@ -75,7 +52,6 @@
     </div>
 </section>
 
-<!-- Partie 2: Téléchargement CV + Annonce contact -->
 <section id="cv-section" class="min-h-screen px-4 py-12 bg-darker-blue/60">
     <div class="container mx-auto">
         <div class="max-w-3xl mx-auto">
@@ -84,7 +60,6 @@
                 <p class="text-thistle/70 mb-4 font-mono text-sm" data-i18n="cv.intro">Vous souhaitez en apprendre plus sur moi ?</p>
             </div>
 
-            <!-- Résumé des compétences -->
             <div class="mb-6 p-4 border border-lavender-purple/30 bg-darker-blue/40 shine-effect animate-on-scroll border-animate">
                 <h3 class="text-lavender-purple font-mono mb-3 text-lg sparkle" data-i18n="cv.skills.title">$ whoami --skills</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
@@ -102,7 +77,6 @@
                 </div>
             </div>
 
-            <!-- Outils maîtrisés -->
             <div class="mb-6 p-4 border border-lavender-purple/30 bg-darker-blue/40 shine-effect animate-on-scroll">
                 <h3 class="text-lavender-purple font-mono mb-3 text-lg sparkle" data-i18n="cv.tools.title">$ ls /usr/bin/ | grep -i tools</h3>
                 <div class="flex flex-wrap gap-2">
@@ -118,21 +92,15 @@
                 </div>
             </div>
 
-            <!-- Bouton téléchargement CV -->
-            <a href="#" download class="inline-block px-6 py-3 border-2 border-lavender-purple text-lavender-purple hover:bg-lavender-purple hover:text-darker-blue transition-all terminal-glow font-mono mb-6 btn-glow shine-effect animate-on-scroll" data-i18n="cv.download">
-                [ wget cv.pdf ]
-            </a>
+            <a href="#" download class="inline-block px-6 py-3 border-2 border-lavender-purple text-lavender-purple hover:bg-lavender-purple hover:text-darker-blue transition-all terminal-glow font-mono mb-6 btn-glow shine-effect animate-on-scroll" data-i18n="cv.download">[ wget cv.pdf ]</a>
 
-            <!-- Annonce contact -->
             <div class="mt-8 p-5 border border-lavender-purple/40 bg-darker-blue/60 shine-effect pulse-animate animate-on-scroll">
                 <div class="flex items-start gap-3">
                     <span class="text-lavender-purple text-xl breathe-effect">➜</span>
                     <div>
                         <p class="text-thistle/90 font-mono mb-2"><span class="text-lavender-purple sparkle" data-i18n="cv.contact.status">status:</span> <span data-i18n="cv.contact.value">open_to_opportunities</span></p>
                         <p class="text-thistle/70 text-sm font-mono mb-3" data-i18n="cv.contact.text">N'hésitez pas à me contacter pour discuter de vos opportunités de stage ou alternance en cybersécurité</p>
-                        <a href="#contact" class="inline-block px-4 py-2 border border-lavender-purple/40 hover:bg-lavender-purple/10 hover:border-lavender-purple transition-all font-mono text-sm btn-glow shine-effect" data-i18n="cv.contact.button">
-                            $ ./contact.sh →
-                        </a>
+                        <a href="#contact" class="inline-block px-4 py-2 border border-lavender-purple/40 hover:bg-lavender-purple/10 hover:border-lavender-purple transition-all font-mono text-sm btn-glow shine-effect" data-i18n="cv.contact.button">$ ./contact.sh →</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +108,6 @@
     </div>
 </section>
 
-<!-- Partie 3: CTF (Capture The Flag) -->
 <section id="ctf" class="min-h-screen px-4 py-12 flex items-center justify-center cyber-grid">
     <div class="container mx-auto">
         <div class="text-center mb-6 animate-on-scroll">
@@ -148,9 +115,7 @@
             <p class="text-thistle/60 text-sm mt-2 font-mono" data-i18n="ctf.subtitle">Mes participations et résolutions de challenges CTF</p>
         </div>
 
-        <!-- Grid de cards CTF -->
         <div id="ctf-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- CTF Card 1 -->
             <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
@@ -169,8 +134,7 @@
                 </div>
             </div>
 
-            <!-- CTF Card 2 -->
-            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover-border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
                     <span class="text-lavender-purple">challenge_002.md</span>
@@ -188,8 +152,7 @@
                 </div>
             </div>
 
-            <!-- CTF Card 3 -->
-            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover-border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
                     <span class="text-lavender-purple">challenge_003.md</span>
@@ -207,8 +170,7 @@
                 </div>
             </div>
 
-            <!-- CTF Card 4 -->
-            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll hidden" data-extra-card>
+            <div class="ctf-card block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover-border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll hidden" data-extra-card>
                 <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">
                     <span>-rw-r--r--</span>
                     <span class="text-lavender-purple">challenge_004.md</span>
@@ -227,7 +189,6 @@
             </div>
         </div>
 
-        <!-- Bouton Voir Plus -->
         <div class="text-center mt-6">
             <button id="ctf-show-more" class="px-6 py-3 border border-deep-lilac rounded-lg hover:bg-deep-lilac/20 transition btn-glow shine-effect font-mono">
                 <span data-i18n="ctf.showMore">Voir plus</span> <span class="ml-2">▼</span>
@@ -236,147 +197,6 @@
     </div>
 </section>
 
-<!--&lt;!&ndash; Partie 4: Projets académiques &ndash;&gt;-->
-<!--<section id="projets" class="min-h-screen px-4 py-12 bg-darker-blue/60 cyber-grid">-->
-<!--    <div class="container mx-auto">-->
-<!--        <div class="text-center mb-6 animate-on-scroll">-->
-<!--            <span class="text-thistle/60 text-lg" data-i18n="projects.title">$ ls -la ./academic_projects/</span>-->
-<!--            <p class="text-thistle/60 text-sm mt-2 font-mono" data-i18n="projects.subtitle">Projets réalisés dans le cadre de ma formation</p>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Grid de cards projets &ndash;&gt;-->
-<!--        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">-->
-<!--            &lt;!&ndash; Projet Card 1 &ndash;&gt;-->
-<!--            <a href="projet-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">-->
-<!--                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">-->
-<!--                    <span>drwxr-xr-x</span>-->
-<!--                    <span class="text-lavender-purple">project_001/</span>-->
-<!--                </div>-->
-<!--                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">-->
-<!--                    <img src="" alt="Projet thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">-->
-<!--                </div>-->
-<!--                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="projects.card1.title">Nom du Projet</h3>-->
-<!--                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="projects.card1.desc">Application web sécurisée avec authentification JWT et protection CSRF</p>-->
-<!--                <p class="text-thistle/50 mb-3 text-xs" data-i18n="projects.card1.time">Réalisé en équipe de 4 - Durée: 3 mois</p>-->
-<!--                <div class="flex gap-2 flex-wrap text-xs font-mono">-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">b2</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">web</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">github</span>-->
-<!--                </div>-->
-<!--            </a>-->
-
-<!--            &lt;!&ndash; Projet Card 2 &ndash;&gt;-->
-<!--            <a href="projet-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">-->
-<!--                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">-->
-<!--                    <span>drwxr-xr-x</span>-->
-<!--                    <span class="text-lavender-purple">project_002/</span>-->
-<!--                </div>-->
-<!--                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">-->
-<!--                    <img src="" alt="Projet thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">-->
-<!--                </div>-->
-<!--                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="projects.card2.title">Nom du Projet</h3>-->
-<!--                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="projects.card2.desc">Infrastructure réseau sécurisée avec VPN, firewall et IDS/IPS</p>-->
-<!--                <p class="text-thistle/50 mb-3 text-xs" data-i18n="projects.card2.time">Projet individuel - Durée: 6 semaines</p>-->
-<!--                <div class="flex gap-2 flex-wrap text-xs font-mono">-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">b1</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">réseau</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">online</span>-->
-<!--                </div>-->
-<!--            </a>-->
-
-<!--            &lt;!&ndash; Projet Card 3 &ndash;&gt;-->
-<!--            <a href="projet-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">-->
-<!--                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">-->
-<!--                    <span>drwxr-xr-x</span>-->
-<!--                    <span class="text-lavender-purple">project_003/</span>-->
-<!--                </div>-->
-<!--                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">-->
-<!--                    <img src="" alt="Projet thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">-->
-<!--                </div>-->
-<!--                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="projects.card3.title">Nom du Projet</h3>-->
-<!--                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="projects.card3.desc">Pipeline CI/CD sécurisé avec analyse de vulnérabilités automatisée</p>-->
-<!--                <p class="text-thistle/50 mb-3 text-xs" data-i18n="projects.card3.time">En binôme - Durée: 2 mois</p>-->
-<!--                <div class="flex gap-2 flex-wrap text-xs font-mono">-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple">b2</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">devops</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">github</span>-->
-<!--                </div>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-<!--&lt;!&ndash; Partie 5: Projets personnels &ndash;&gt;-->
-<!--<section id="projets-perso" class="min-h-screen px-4 py-12 flex items-center justify-center cyber-grid">-->
-<!--    <div class="container mx-auto">-->
-<!--        <div class="text-center mb-6 animate-on-scroll">-->
-<!--            <span class="text-thistle/60 text-lg" data-i18n="personal.title">$ ls -la ./personal_projects/</span>-->
-<!--            <p class="text-thistle/60 text-sm mt-2 font-mono" data-i18n="personal.subtitle">Mes projets personnels et contributions open-source</p>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Grid de cards projets personnels &ndash;&gt;-->
-<!--        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">-->
-<!--            &lt;!&ndash; Projet Perso Card 1 &ndash;&gt;-->
-<!--            <a href="projet-perso-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">-->
-<!--                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">-->
-<!--                    <span>drwxr-xr-x</span>-->
-<!--                    <span class="text-lavender-purple">project_001/</span>-->
-<!--                </div>-->
-<!--                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">-->
-<!--                    <img src="" alt="Projet thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">-->
-<!--                </div>-->
-<!--                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="personal.card1.title">Nom du Projet</h3>-->
-<!--                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="personal.card1.desc">Scanner de vulnérabilités automatisé avec reporting détaillé et suggestions de correction</p>-->
-<!--                <p class="text-thistle/50 mb-3 text-xs" data-i18n="personal.card1.stats">⭐ 45 stars - 12 forks - Actif</p>-->
-<!--                <div class="flex gap-2 flex-wrap text-xs font-mono">-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple">python</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2024</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">github</span>-->
-<!--                </div>-->
-<!--            </a>-->
-
-<!--            &lt;!&ndash; Projet Perso Card 2 &ndash;&gt;-->
-<!--            <a href="projet-perso-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">-->
-<!--                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">-->
-<!--                    <span>drwxr-xr-x</span>-->
-<!--                    <span class="text-lavender-purple">project_002/</span>-->
-<!--                </div>-->
-<!--                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">-->
-<!--                    <img src="" alt="Projet thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">-->
-<!--                </div>-->
-<!--                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="personal.card2.title">Nom du Projet</h3>-->
-<!--                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="personal.card2.desc">Extension de navigateur pour l'analyse de sécurité en temps réel des sites web</p>-->
-<!--                <p class="text-thistle/50 mb-3 text-xs" data-i18n="personal.card2.stats">⭐ 89 stars - 23 forks - 500+ utilisateurs</p>-->
-<!--                <div class="flex gap-2 flex-wrap text-xs font-mono">-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple pulse-animate">javascript</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2024</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">online</span>-->
-<!--                </div>-->
-<!--            </a>-->
-
-<!--            &lt;!&ndash; Projet Perso Card 3 &ndash;&gt;-->
-<!--            <a href="projet-perso-detail.html" class="block p-4 border border-lavender-purple/40 hover:bg-darker-blue/80 hover:border-lavender-purple transition-all terminal-glow group card-3d shine-effect animate-on-scroll">-->
-<!--                <div class="flex items-center gap-2 mb-2 text-thistle/60 text-sm font-mono">-->
-<!--                    <span>drwxr-xr-x</span>-->
-<!--                    <span class="text-lavender-purple">project_003/</span>-->
-<!--                </div>-->
-<!--                <div class="mb-3 border border-lavender-purple/30 overflow-hidden">-->
-<!--                    <img src="" alt="Projet thumbnail" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500">-->
-<!--                </div>-->
-<!--                <h3 class="text-lg font-semibold mb-2 text-thistle group-hover:text-lavender-purple transition" data-i18n="personal.card3.title">Nom du Projet</h3>-->
-<!--                <p class="text-thistle/70 mb-2 text-sm font-mono" data-i18n="personal.card3.desc">Dashboard de monitoring pour la sécurité réseau avec alertes en temps réel</p>-->
-<!--                <p class="text-thistle/50 mb-3 text-xs" data-i18n="personal.card3.stats">⭐ 34 stars - 8 forks - Maintenance active</p>-->
-<!--                <div class="flex gap-2 flex-wrap text-xs font-mono">-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-lavender-purple">react</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">2023</span>-->
-<!--                    <span class="px-2 py-1 border border-lavender-purple/40 text-thistle/70">github</span>-->
-<!--                </div>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-<!-- Partie 6: Formulaire de contact + Footer -->
 <section id="contact" class="min-h-screen px-4 py-12 bg-darker-blue/60">
     <div class="container mx-auto">
         <div class="text-center mb-6 animate-on-scroll">
@@ -385,91 +205,32 @@
         </div>
 
         <div class="max-w-2xl mx-auto">
-            <!-- Feedback area pour l'envoi -->
             <div id="contact-status" class="hidden mb-4 p-3 rounded-lg text-sm font-mono" role="status" aria-live="polite"></div>
              <form id="contact-form" class="space-y-4">
-                <!-- Nom -->
                 <div class="form-row">
-                    <label for="name" class="block mb-1.5 font-mono text-sm text-thistle/70">
-                        <span class="text-lavender-purple/60">--name=</span>
-                    </label>
-                    <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                            class="w-full px-4 py-2 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect"
-                            data-i18n-placeholder="contact.form.name.placeholder"
-                            placeholder="votre_nom"
-                    >
+                    <label for="name" class="block mb-1.5 font-mono text-sm text-thistle/70"><span class="text-lavender-purple/60">--name=</span></label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect" data-i18n-placeholder="contact.form.name.placeholder" placeholder="votre_nom">
                 </div>
 
-                <!-- Email -->
                 <div class="form-row">
-                    <label for="email" class="block mb-1.5 font-mono text-sm text-thistle/70">
-                        <span class="text-lavender-purple/60">--email=</span>
-                    </label>
-                    <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            class="w-full px-4 py-2 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect"
-                            data-i18n-placeholder="contact.form.email.placeholder"
-                            placeholder="votre@email.com"
-                    >
+                    <label for="email" class="block mb-1.5 font-mono text-sm text-thistle/70"><span class="text-lavender-purple/60">--email=</span></label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect" data-i18n-placeholder="contact.form.email.placeholder" placeholder="votre@email.com">
                 </div>
 
-                <!-- Sujet -->
                 <div class="form-row">
-                    <label for="subject" class="block mb-1.5 font-mono text-sm text-thistle/70">
-                        <span class="text-lavender-purple/60">--subject=</span>
-                    </label>
-                    <input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            required
-                            class="w-full px-4 py-2 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect"
-                            data-i18n-placeholder="contact.form.subject.placeholder"
-                            placeholder="Sujet de votre message"
-                    >
+                    <label for="message" class="block mb-1.5 font-mono text-sm text-thistle/70"><span class="text-lavender-purple/60">--message=</span></label>
+                    <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect" data-i18n-placeholder="contact.form.message.placeholder" placeholder="Votre message..."></textarea>
                 </div>
 
-                <!-- Message -->
-                <div class="form-row">
-                    <label for="message" class="block mb-1.5 font-mono text-sm text-thistle/70">
-                        <span class="text-lavender-purple/60">--message=</span>
-                    </label>
-                    <textarea
-                            id="message"
-                            name="message"
-                            rows="6"
-                            required
-                            class="w-full px-4 py-3 bg-darker-blue/40 border border-deep-lilac/40 rounded-lg text-thistle/80 font-mono text-sm focus:outline-none focus:border-lavender-purple focus:ring-2 focus:ring-lavender-purple/20 placeholder:text-thistle/60 transition btn-glow shine-effect"
-                            data-i18n-placeholder="contact.form.message.placeholder"
-                            placeholder="Votre message..."
-                    ></textarea>
-                </div>
-
-                <!-- Bouton submit -->
-                <button
-                        type="submit"
-                        class="w-full inline-block px-6 py-3 border-2 border-lavender-purple text-lavender-purple hover:bg-lavender-purple hover:text-darker-blue transition-all terminal-glow font-mono mb-6 btn-glow shine-effect"
-                        data-i18n="contact.form.send"
-                >
-                    ➜ Envoyer le message
-                </button>
+                <button type="submit" class="w-full inline-block px-6 py-3 border-2 border-lavender-purple text-lavender-purple hover:bg-lavender-purple hover:text-darker-blue transition-all terminal-glow font-mono mb-6 btn-glow shine-effect" data-i18n="contact.form.send">➜ Envoyer le message</button>
             </form>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="bg-darker-blue border-t border-lavender-purple/30">
     <div class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <!-- Colonne 1: Navigation -->
             <div>
                 <h3 class="text-lg font-semibold mb-4 text-lavender-purple font-mono" data-i18n="footer.navigation">$ ls navigation/</h3>
                 <ul class="space-y-2 font-mono text-sm">
@@ -481,7 +242,6 @@
                 </ul>
             </div>
 
-            <!-- Colonne 2: Réseaux sociaux -->
             <div>
                 <h3 class="text-lg font-semibold mb-4 text-lavender-purple font-mono" data-i18n="footer.links">$ ls links/</h3>
                 <ul class="space-y-2 font-mono text-sm">
@@ -492,7 +252,6 @@
                 </ul>
             </div>
 
-            <!-- Colonne 3: Contact -->
             <div>
                 <h3 class="text-lg font-semibold mb-4 text-lavender-purple font-mono" data-i18n="footer.contact">$ cat contact.info</h3>
                 <ul class="space-y-2 font-mono text-sm">
@@ -502,352 +261,15 @@
             </div>
         </div>
 
-        <!-- Copyright -->
         <div class="text-center pt-8 border-t border-lavender-purple/30">
-            <p class="text-thistle/70 font-mono text-sm" data-i18n="footer.copyright">
-                <span class="text-lavender-purple/60">$</span> echo "© 2024 Portfolio. Tous droits réservés."
-            </p>
+            <p class="text-thistle/70 font-mono text-sm" data-i18n="footer.copyright"><span class="text-lavender-purple/60">$</span> echo "© 2024 Portfolio. Tous droits réservés."</p>
         </div>
     </div>
 </footer>
 
-<script>
-    // Animation des particules en arrière-plan
-    const canvas = document.getElementById('particles-canvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = Math.random() * 0.5 - 0.25;
-            this.speedY = Math.random() * 0.5 - 0.25;
-            this.opacity = Math.random() * 0.5 + 0.2;
-        }
-
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
-        }
-
-        draw() {
-            ctx.fillStyle = `rgba(160, 108, 213, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    const particles = [];
-    for (let i = 0; i < 100; i++) {
-        particles.push(new Particle());
-    }
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-
-            // Dessiner les connexions entre particules proches
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 100) {
-                    ctx.strokeStyle = `rgba(160, 108, 213, ${0.1 * (1 - distance / 100)})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-
-    // Animation au scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Gestion du bouton "Voir plus" pour les cards CTF
-    const showMoreBtn = document.getElementById('ctf-show-more');
-    const extraCards = document.querySelectorAll('[data-extra-card]');
-    let ctfExpanded = false;
-
-    if (showMoreBtn && extraCards.length > 0) {
-        showMoreBtn.addEventListener('click', () => {
-            ctfExpanded = !ctfExpanded;
-
-            extraCards.forEach(card => {
-                if (ctfExpanded) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            const btnText = showMoreBtn.querySelector('[data-i18n="ctf.showMore"]');
-            const btnIcon = showMoreBtn.querySelector('span:last-child');
-
-            if (ctfExpanded) {
-                btnText.setAttribute('data-i18n', 'ctf.showLess');
-                btnText.textContent = 'Voir moins'; // sera mis à jour par setLanguage si nécessaire
-                btnIcon.textContent = '▲';
-            } else {
-                btnText.setAttribute('data-i18n', 'ctf.showMore');
-                btnText.textContent = 'Voir plus'; // sera mis à jour par setLanguage si nécessaire
-                btnIcon.textContent = '▼';
-            }
-        });
-    }
-
-    // Effet de parallaxe léger sur scroll
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrolled = window.pageYOffset;
-                // Exclure la photo de profil des effets parallax agressifs
-                const parallaxElements = document.querySelectorAll('.float-animate:not(.profile-image-container)');
-
-                parallaxElements.forEach(el => {
-                    // permettre d'ajuster la vitesse via data-parallax-speed si nécessaire
-                    const speed = parseFloat(el.dataset.parallaxSpeed) || 0.3;
-                    const max = 40; // limiter le déplacement
-                    const y = Math.max(Math.min(scrolled * speed, max), -max);
-                    el.style.transform = `translateY(${y}px)`;
-                });
-
-                // Appliquer un effet très léger et limité à la photo de profil uniquement
-                const profile = document.querySelector('.profile-image-container.float-animate');
-                if (profile) {
-                    const speed = 0.08; // très discret
-                    const y = Math.max(Math.min(scrolled * speed, 10), -10);
-                    profile.style.transform = `translateY(${y}px)`;
-                }
-
-                ticking = false;
-            });
-
-            ticking = true;
-        }
-    });
-
-    // Effet de lueur qui suit la souris sur les cartes
-    document.querySelectorAll('.card-3d').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
-
-    // Ajuste dynamiquement la hauteur du spacer pour laisser la place au header fixe
-    function adjustBodyForFixedHeader() {
-        const nav = document.querySelector('nav');
-        const spacer = document.getElementById('nav-spacer');
-        if (nav && spacer) {
-            const navHeight = nav.getBoundingClientRect().height;
-            spacer.style.height = navHeight + 'px';
-            spacer.style.width = '100%';
-        }
-    }
-
-    window.addEventListener('load', () => {
-        adjustBodyForFixedHeader();
-        // s'assurer de cacher la barre de chargement aussi
-        const loadingBar = document.getElementById('loading-bar');
-        if (loadingBar) {
-            setTimeout(() => {
-                loadingBar.style.opacity = '0';
-            }, 2000);
-        }
-    });
-
-    window.addEventListener('resize', adjustBodyForFixedHeader);
-
-    // Effet de typing sur le titre
-    const title = document.querySelector('h1');
-    if (title) {
-        const text = title.textContent;
-        title.textContent = '';
-        let i = 0;
-
-        const typeWriter = () => {
-            if (i < text.length) {
-                title.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                title.classList.remove('typing-effect');
-            }
-        };
-
-        setTimeout(() => {
-            title.classList.add('typing-effect');
-            typeWriter();
-        }, 500);
-    }
-</script>
-
-<!-- Script de traduction -->
-<script>
-// Force runtime pour s'assurer que le header est bien en haut (debug + fallback)
-(function enforceNavTop(){
-    try {
-        const nav = document.querySelector('nav');
-        const spacer = document.getElementById('nav-spacer');
-        if (nav) {
-            nav.style.position = 'fixed';
-            nav.style.top = '0px';
-            nav.style.left = '0px';
-            nav.style.right = '0px';
-            nav.style.zIndex = '10000';
-            // visual debug outline (retirer si ok)
-            // nav.style.outline = '1px solid rgba(255,0,0,0.08)';
-        }
-        if (nav && spacer) {
-            const h = nav.getBoundingClientRect().height;
-            spacer.style.height = h + 'px';
-            spacer.style.width = '100%';
-        }
-        // ensure document margins are 0
-        document.documentElement.style.margin = '0';
-        document.body.style.margin = '0';
-    } catch(e) {
-        // ignore
-    }
-})();
-</script>
+<script src="scripts/main.js"></script>
 <script src="translations.js"></script>
-<!-- EmailJS SDK + handler pour le formulaire de contact -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-<script>
-    (function(){
-        const SERVICE_ID = 'service_iwrv2t2'; // ex: 'service_xxx'
-        const TEMPLATE_ID = 'template_ow873dt'; // ex: 'template_xxx'
-        const PUBLIC_KEY = 'ZvB8V2GZaZXkmzBtM'; // ex: 'user_xxx' ou clé publique
-
-        // Initialisation EmailJS
-        if (window.emailjs) {
-            try {
-                emailjs.init(PUBLIC_KEY);
-            } catch (e) {
-                // ignore si déjà initialisé
-            }
-        }
-
-        const form = document.getElementById('contact-form');
-        const statusEl = document.getElementById('contact-status');
-        const submitBtn = form.querySelector('button[type="submit"]');
-
-        function showStatus(message, ok = true) {
-            statusEl.classList.remove('hidden');
-            statusEl.textContent = message;
-            if (ok) {
-                statusEl.classList.remove('bg-red-600', 'text-red-50');
-                statusEl.classList.add('bg-lavender-purple/20', 'text-thistle');
-            } else {
-                statusEl.classList.remove('bg-lavender-purple/20', 'text-thistle');
-                statusEl.classList.add('bg-red-600', 'text-red-50');
-            }
-        }
-
-        function hideStatus() {
-            statusEl.classList.add('hidden');
-        }
-
-        // Handler d'envoi
-        if (form) {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                hideStatus();
-
-                // validation simple (peut être enrichie)
-                const name = form.querySelector('#name');
-                const email = form.querySelector('#email');
-                const message = form.querySelector('#message');
-
-                if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-                    showStatus('Merci de remplir au moins le nom, l\'email et le message.', false);
-                    return;
-                }
-
-                submitBtn.disabled = true;
-                submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
-
-                // sendForm envoie directement le formulaire
-                if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY || SERVICE_ID === 'YOUR_SERVICE_ID') {
-                    // Si l'utilisateur n'a pas renseigné ses IDs, on n'envoie pas réellement
-                    showStatus('Intégration EmailJS configurée mais les identifiants ne sont pas définis. Remplacez SERVICE_ID / TEMPLATE_ID / PUBLIC_KEY dans le script.', false);
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-                    return;
-                }
-
-                emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, '#contact-form')
-                    .then(function () {
-                        showStatus('Message envoyé — merci !', true);
-                        form.reset();
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-                    }, function (error) {
-                        console.error('EmailJS error', error);
-                        showStatus('Erreur lors de l\'envoi. Réessayez plus tard.', false);
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-                    });
-            });
-        }
-    })();
-</script>
+<script src="scripts/contact.js"></script>
 </body>
 </html>
