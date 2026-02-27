@@ -40,18 +40,19 @@ const translations = {
         "ctf.showMore": "Voir plus",
         "ctf.showLess": "Voir moins",
 
-        // Projects Section
-        "projects.title": "$ ls -la ./academic_projects/",
-        "projects.subtitle": "Projets réalisés dans le cadre de ma formation",
-        "projects.card1.title": "Nom du Projet",
-        "projects.card1.desc": "Application web sécurisée avec authentification JWT et protection CSRF",
-        "projects.card1.time": "Réalisé en équipe de 4 - Durée: 3 mois",
-        "projects.card2.title": "Nom du Projet",
-        "projects.card2.desc": "Infrastructure réseau sécurisée avec VPN, firewall et IDS/IPS",
-        "projects.card2.time": "Projet individuel - Durée: 6 semaines",
-        "projects.card3.title": "Nom du Projet",
-        "projects.card3.desc": "Pipeline CI/CD sécurisé avec analyse de vulnérabilités automatisée",
-        "projects.card3.time": "En binôme - Durée: 2 mois",
+        // Academic Projects Section
+        "academic.title": "$ ls -la ./academic_projects/",
+        "academic.subtitle": "Divers projets académiques autour de la cybersécurité et du réseau",
+        "academic.card1.title": "Service de messagerie self-hosted souveraine",
+        "academic.card1.desc": "Implémentation de \"Mattermost\" pour une association d'une vingtaine de personne",
+        "academic.card2.title": "Toolkit pour l'analyse de log Apache 2.0",
+        "academic.card2.desc": "Toolkit développé en python contenant divers scripts de détection d'attaques",
+        "academic.card3.title": "Développement du moteur de jeu du projet Hackemon",
+        "academic.card3.desc": "Développement du créateur de carte pour un jeu en 2,5D inspiré de Pokémon",
+        "academic.card4.title": "Chef de projet d'un jeu vidéo à monde ouvert musical",
+        "academic.card4.desc": "Chef de projet d'un jeu vidéo RPG like dans le style de Zelda ou Genshin Impact",
+        "academic.showMore": "Voir plus",
+        "academic.showLess": "Voir moins",
 
         // Personal Projects Section
         "personal.title": "$ ls -la ./personal_projects/",
@@ -124,18 +125,19 @@ const translations = {
         "ctf.showMore": "Show more",
         "ctf.showLess": "Show less",
 
-        // Projects Section
-        "projects.title": "$ ls -la ./academic_projects/",
-        "projects.subtitle": "Projects completed during my education",
-        "projects.card1.title": "Project Name",
-        "projects.card1.desc": "Secure web application with JWT authentication and CSRF protection",
-        "projects.card1.time": "Team of 4 - Duration: 3 months",
-        "projects.card2.title": "Project Name",
-        "projects.card2.desc": "Secure network infrastructure with VPN, firewall and IDS/IPS",
-        "projects.card2.time": "Individual project - Duration: 6 weeks",
-        "projects.card3.title": "Project Name",
-        "projects.card3.desc": "Secure CI/CD pipeline with automated vulnerability analysis",
-        "projects.card3.time": "Pair project - Duration: 2 months",
+        // Academic Projects Section
+        "academic.title": "$ ls -la ./academic_projects/",
+        "academic.subtitle": "Various academic projects around cybersecurity and networking",
+        "academic.card1.title": "Sovereign Self-Hosted Messaging Service",
+        "academic.card1.desc": "Implementation of \"Mattermost\" for an association of about twenty people",
+        "academic.card2.title": "Toolkit for Apache 2.0 Log Analysis",
+        "academic.card2.desc": "Toolkit developed in Python containing various attack detection scripts",
+        "academic.card3.title": "Development of the Hackemon Project Game Engine",
+        "academic.card3.desc": "Development of the map creator for a 2.5D Pokémon-inspired game",
+        "academic.card4.title": "Project Manager of a Musical Open-World Video Game",
+        "academic.card4.desc": "Project manager of an RPG-like video game in the style of Zelda or Genshin Impact",
+        "academic.showMore": "Show more",
+        "academic.showLess": "Show less",
 
         // Personal Projects Section
         "personal.title": "$ ls -la ./personal_projects/",
